@@ -15,3 +15,29 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+## 2.2 Diagrama MVVM del proyecto Aristeia
+
+```mermaid
+graph TD
+
+A[DashboardPage]
+B[AnalisisPage]
+C[MateriasPage]
+D[ProgresoPage]
+
+VM[ViewModel]
+
+R[Repository]
+
+DB[(Supabase)]
+
+A --> VM
+B --> VM
+C --> VM
+D --> VM
+
+VM --> R
+R --> DB
+```
