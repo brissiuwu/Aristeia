@@ -26,6 +26,7 @@ A[DashboardPage]
 B[AnalisisPage]
 C[MateriasPage]
 D[ProgresoPage]
+E[RetroalimentacionPage]
 
 VM[ViewModel]
 
@@ -37,6 +38,7 @@ A --> VM
 B --> VM
 C --> VM
 D --> VM
+E --> VM
 
 VM --> R
 R --> DB
