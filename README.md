@@ -43,3 +43,26 @@ E --> VM
 VM --> R
 R --> DB
 ```
+## 3.2 Flujo de datos — Carga de tareas con Realtime
+
+El siguiente diagrama muestra cómo la aplicación carga los datos iniciales desde Supabase y se mantiene sincronizada en tiempo real con cualquier cambio en la base de datos.
+
+```mermaid
+sequenceDiagram
+
+participant UI as Pantalla (DashboardPage)
+participant VM as ViewModel
+participant R as Repository
+participant DB as Supabase
+
+UI->>VM: solicita datos
+VM->>R: getTareas()
+R->>DB: consulta inicial
+DB-->>R: datos
+R-->>VM: lista de tareas
+VM-->>UI: muestra datos
+
+DB-->>R: cambio en tiempo real
+R-->>VM: datos actualizados
+VM-->>UI: actualiza pantalla
+```
