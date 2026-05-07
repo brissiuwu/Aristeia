@@ -66,3 +66,34 @@ DB-->>R: cambio en tiempo real
 R-->>VM: datos actualizados
 VM-->>UI: actualiza pantalla
 ```
+## 2.2 Diagrama MVVM del proyecto Aristeia
+
+```mermaid
+graph TD
+
+subgraph Presentation Layer
+    A[DashboardPage]
+    B[AnalisisPage]
+    C[MateriasPage]
+    D[ProgresoPage]
+    E[RetroalimentacionPage]
+end
+
+subgraph ViewModel
+    VM[Gestión de estado]
+end
+
+subgraph Data Layer
+    R[Repository]
+    DB[(Supabase)]
+end
+
+A --> VM
+B --> VM
+C --> VM
+D --> VM
+E --> VM
+
+VM --> R
+R --> DB
+```
