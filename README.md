@@ -66,25 +66,33 @@ DB-->>R: cambio en tiempo real
 R-->>VM: datos actualizados
 VM-->>UI: actualiza pantalla
 ```
-## 2.2 Diagrama MVVM del proyecto Aristeia
-
 ```mermaid
-graph TD
+erDiagram
 
-subgraph Presentation_Layer
-    V["View<br/>DashboardPage<br/>AnalisisPage<br/>MateriasPage<br/>ProgresoPage<br/>RetroalimentacionPage"]
-end
+USUARIOS {
+  uuid id_usuario PK
+  varchar nombre
+  varchar correo
+}
 
-subgraph ViewModel
-    VM["ViewModel<br/>Gestión de estado"]
-end
+ESTUDIANTES {
+  int id_estudiante PK
+  uuid id_usuario FK
+  varchar matricula
+}
 
-subgraph Data_Layer
-    R["Repository"]
-    DB["Supabase"]
-end
+MATERIAS {
+  int id_materia PK
+  varchar nombre
+}
 
-V --> VM
-VM --> R
-R --> DB
+RESULTADOS {
+  int id_resultado PK
+  int id_estudiante FK
+  int id_examen FK
+}
+
+USUARIOS ||--|| ESTUDIANTES : tiene
+ESTUDIANTES ||--o{ RESULTADOS : obtiene
+MATERIAS ||--o{ RESULTADOS : evalua
 ```
