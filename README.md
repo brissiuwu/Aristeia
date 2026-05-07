@@ -71,29 +71,20 @@ VM-->>UI: actualiza pantalla
 ```mermaid
 graph TD
 
-subgraph Presentation Layer
-    A[DashboardPage]
-    B[AnalisisPage]
-    C[MateriasPage]
-    D[ProgresoPage]
-    E[RetroalimentacionPage]
+subgraph Presentation_Layer
+    V["View<br/>DashboardPage<br/>AnalisisPage<br/>MateriasPage<br/>ProgresoPage<br/>RetroalimentacionPage"]
 end
 
 subgraph ViewModel
-    VM[Gestión de estado]
+    VM["ViewModel<br/>Gestión de estado"]
 end
 
-subgraph Data Layer
-    R[Repository]
-    DB[(Supabase)]
+subgraph Data_Layer
+    R["Repository"]
+    DB["Supabase"]
 end
 
-A --> VM
-B --> VM
-C --> VM
-D --> VM
-E --> VM
-
+V --> VM
 VM --> R
 R --> DB
 ```
