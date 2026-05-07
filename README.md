@@ -66,6 +66,10 @@ DB-->>R: cambio en tiempo real
 R-->>VM: datos actualizados
 VM-->>UI: actualiza pantalla
 ```
+
+
+
+
 ```mermaid
 erDiagram
 
